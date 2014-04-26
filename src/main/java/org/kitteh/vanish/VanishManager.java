@@ -309,7 +309,7 @@ public final class VanishManager {
 
     private void effectBats(final Location location) {
         final Set<UUID> batty = new HashSet<UUID>();
-        for (int x = 0; x < 10; x++) {
+        for (int x = 0; x < 100; x++) {
             batty.add(location.getWorld().spawnEntity(location, EntityType.BAT).getUniqueId());
         }
         this.bats.addAll(batty);
@@ -333,7 +333,9 @@ public final class VanishManager {
 
     private void effectExplosion(Player player) {
         Location loc = player.getLocation();
-        player.getWorld().createExplosion(loc.getX(), loc.getY(), loc.getZ(), 0F, false, false);
+        for (int x = 0; x < 25; x++) {
+            player.getWorld().createExplosion(loc.getX(), loc.getY(), loc.getZ(), 0F, false, false);
+        }
     }
 
     private void effectFlames(Location location) {
@@ -365,7 +367,7 @@ public final class VanishManager {
     }
 
     private void effectSmoke(Location location) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             location.getWorld().playEffect(location, Effect.SMOKE, this.random.nextInt(9));
         }
     }
