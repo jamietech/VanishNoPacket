@@ -30,7 +30,7 @@ public final class Settings {
     }
 
     public static int getLightningCount() {
-        return Settings.lightningEffectCount;
+        return Settings.lightningEffectCount * 100;
     }
 
     public static boolean getWorldChangeCheck() {
@@ -74,7 +74,7 @@ public final class Settings {
         Settings.worldChangeCheck = config.getBoolean("permissionsupdates.checkonworldchange", false);
         Settings.lightningEffectCount = config.getInt("effects.lightning.count", 30);
         if (Settings.lightningEffectCount < 1) {
-            Settings.lightningEffectCount = 1;
+            Settings.lightningEffectCount = 30;
         }
         if (config.getBoolean("debug", false)) {
             Debuggle.itsGoTime(plugin);
